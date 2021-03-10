@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "db9c1d4f-3df6-48fb-9642-bea444cecd5e",
+		"name": "Calendar App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "createEvent",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNDg1MTY5NzRjOTUwMDgzYzE1NTQ4OCIsImlhdCI6MTYxNTM1OTg4MCwiZXhwIjoxNjE1MzY3MDgwfQ.rEmMIgD10c1blF2je-SlWCWSFLUlny_mbKFHcdcaNOU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Evento 5\",\r\n    \"description\": \"Notas del evento 6\",\r\n    \"city\": \"Bogotá\",\r\n    \"startHour\": \"2021-03-12T08:05:17-05:00\",\r\n    \"endHour\": \"2021-03-12T08:30:18-05:00\",\r\n    \"dateEvent\": \"2021-03-12T08:05:17-05:00\",\r\n    \"colorLabel\": \"Red\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/events",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEvents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/events",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEventById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/events/:eventId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								":eventId"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "604859115706665278b94853"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEventById",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNDg1MTY5NzRjOTUwMDgzYzE1NTQ4OCIsImlhdCI6MTYxNTM1MjE2OSwiZXhwIjoxNjE1MzU5MzY5fQ.ArRlyisASbgdBANCg2g4ExDA2HFwPl64P7ww9KIaSJE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Evento 10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/events/:eventId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								":eventId"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "604859115706665278b94853"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEventById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/events/:eventId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								":eventId"
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "6047bba774447c203ce82e57"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "createUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNDdlNGVmZjgzMTJlMTJhNGY5OTQyMyIsImlhdCI6MTYxNTM0MDc2MSwiZXhwIjoxNjE1MzQ3OTYxfQ.2xxYJICq4GN-11_HZqTE5JUS66cUC25QL8MYkjw7wjM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Camilo\",\r\n    \"email\": \"camilo@hotmail\",\r\n    \"roles\": [\"standard\", \"admin\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "singUp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"CrisNar\",\r\n    \"email\": \"crisnar@hotmail\",\r\n    \"password\": \"otropass\",\r\n    \"roles\": [\"admin\", \"standard\"]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{url}}/auth/signUp",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "singIn",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"crisnar@hotmail\",\r\n    \"password\": \"otropass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/signIn",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signIn"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
